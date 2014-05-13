@@ -6,6 +6,7 @@ public class InGameUI : MonoBehaviour {
     private bool isPaused;
     public GUISkin skin;
     public GameObject payload;
+    public static float velNum;
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +45,7 @@ public class InGameUI : MonoBehaviour {
             }
         }
 
-        float velNum = (payload.GetComponent<Rigidbody>().velocity.y) * -1.0f;
+        velNum = (payload.GetComponent<Rigidbody>().velocity.y) * -1.0f;
         
 
         GUI.Label(new Rect(10, 10, 1000, 2000), "Velocity: " + velNum.ToString("##0.00"));

@@ -294,18 +294,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 139930196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b047b48fd80c9649aca2bed02f3ae10, type: 3}
+  m_Script: {fileID: 11500000, guid: a6805f254d3eeef429c4ef57332d2092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 582322022}
-  distanceMin: 8
-  distanceMax: 12
-  distanceInitial: 6
-  scrollSpeed: 3
-  xSpeed: 0
-  ySpeed: 100
-  yMinLimit: 0
-  yMaxLimit: 90
 --- !u!1001 &142813705
 Prefab:
   m_ObjectHideFlags: 0
@@ -2638,6 +2629,7 @@ GameObject:
   - 65: {fileID: 582322028}
   - 54: {fileID: 582322024}
   - 114: {fileID: 582322023}
+  - 114: {fileID: 582322029}
   m_Layer: 0
   m_Name: ShippingContainer
   m_TagString: Untagged
@@ -2760,6 +2752,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.782637, y: 2.43152642, z: 1.00000024}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &582322029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 582322021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e022d6257485b42abe0ce932caf682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfRounds: 0
+  landed: 0
+  spawnPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  payload: {fileID: 582322021}
 --- !u!1001 &744159141
 Prefab:
   m_ObjectHideFlags: 0
@@ -6842,7 +6850,7 @@ GameObject:
   - 114: {fileID: 2077373634}
   m_Layer: 0
   m_Name: MarsTerrain
-  m_TagString: Untagged
+  m_TagString: MarsTerrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
