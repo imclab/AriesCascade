@@ -6,17 +6,17 @@ using System.Collections;
 
 public class MouseOrbit : MonoBehaviour
 {
-    public static GameObject target;
-    float distanceMin = 10.0f;
-    float distanceMax = 15.0f;
-    float distanceInitial = 12.5f;
-    float scrollSpeed = 1.0f;
+    public GameObject target;
+    public float distanceMin = 10.0f;
+	public float distanceMax = 15.0f;
+	public float distanceInitial = 12.5f;
+	public float scrollSpeed = 1.0f;
 
-    float xSpeed = 250.0f;
-    float ySpeed = 120.0f;
+	public float xSpeed = 250.0f;
+	public float ySpeed = 120.0f;
 
-    int yMinLimit = -20;
-    int yMaxLimit = 80;
+	public int yMinLimit = -20;
+	public int yMaxLimit = 80;
 
     private float x = 0.0f;
     private float y = 0.0f;

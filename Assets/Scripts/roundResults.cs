@@ -12,6 +12,7 @@ public class roundResults : MonoBehaviour
     public Vector3 endPos;
     public static GameObject[] spaceshipArray;
     public GameObject payload;
+	public ParticleSystem LandingDust;
 
     //private MouseOrbit cam;
     // Use this for initialization
@@ -35,23 +36,23 @@ public class roundResults : MonoBehaviour
         //newRounds();
     }
 
-       void OnCollisionEnter(Collision collision)
-          {
-              if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "MarsTerrain")
-              {
+    void OnCollisionEnter(Collision collision)
+	{
+        if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "MarsTerrain")
+        {
+	        if (InGameUI.velNum < 10.0)
+            {
+    	        landed = true;
+				LandingDust.Play();
+            }
+            else
+            {
+	            crashed = true;
+            }
+        }
+	}       
 
-                  if (InGameUI.velNum < 10.0)
-                  {
-                     landed = true;
-                  }
-                  else
-                  {
-                      crashed = true;
-                  }
-              }
-        }       
-
-    void OnGUI()
+	/*void OnGUI()
     {
         if (roundNum < numOfRounds)
         {
@@ -87,6 +88,6 @@ public class roundResults : MonoBehaviour
             
         }
 
-    }
+    }*/
 
 }
