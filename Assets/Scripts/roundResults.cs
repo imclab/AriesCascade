@@ -63,6 +63,8 @@ public class roundResults : MonoBehaviour
 
                     endPos = payload.transform.position;
                     spaceshipArray[roundNum] = (GameObject)Instantiate(Resources.Load("SpaceshipDummy"), endPos, transform.rotation);
+                    spaceshipArray[roundNum].gameObject.GetComponentInChildren<Camera>().enabled = false;
+                    spaceshipArray[roundNum].gameObject.GetComponentInChildren<AudioListener>().enabled = false;
                     MouseOrbit.target = payload;
                     payload.transform.position = spawnPos;
                     landed = false;
@@ -77,6 +79,8 @@ public class roundResults : MonoBehaviour
                 {
                     endPos = payload.transform.position;
                     spaceshipArray[roundNum] = (GameObject)Instantiate(Resources.Load("SpaceshipDummy"), endPos, transform.rotation);
+                    spaceshipArray[roundNum].gameObject.GetComponentInChildren<Camera>().enabled = false;
+                    spaceshipArray[roundNum].gameObject.GetComponentInChildren<AudioListener>().enabled = false;
                     MouseOrbit.target = payload;
                     payload.transform.position = spawnPos;
                     landed = false;
