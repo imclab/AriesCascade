@@ -38,4 +38,11 @@ public class GameSounds : MonoBehaviour {
 	void Update () {
 	    
 	}
+
+    public void playThrust()
+    {
+        print("play thrust SFX");
+        audio.clip = thruster;
+        audio.Play();
+    }
 }

@@ -13,10 +13,11 @@ public class TCon : MonoBehaviour {
 	public GameObject locusF;
 	public GameObject locusB;
 	public GameObject locusC;
+    public GameObject sound;
 
 	// Use this for initialization
 	void Start () {
-	
+        sound = GameObject.FindGameObjectWithTag("SoundManager");
 	}
 	
 	// Update is called once per frame
@@ -54,7 +55,8 @@ public class TCon : MonoBehaviour {
 			doorRightT.Play ();
 			endLeftT.Play ();
 			endRightT.Play ();
-			rigidbody.AddForce(locusC.transform.up * (thrust));
+			rigidbody.AddForce(locusC.transform.up * (thrust * 10));
+            sound.GetComponent<GameSounds>().playThrust();
 		}
 		/*else {
 		//else if((Input.GetAxis("Vertical") == 0) || (Input.GetAxis ("Horizontal") == 0)) { //checking if no Vert keys are down
