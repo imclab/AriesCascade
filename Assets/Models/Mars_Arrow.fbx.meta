@@ -1,20 +1,32 @@
 fileFormatVersion: 2
-guid: 2fe1ad668d49dd040852dffb7545ee23
+guid: f6773e65f35a1ca47a4d6ff1cfe8a81e
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Pointer_Arrow
-    100004: Pointer_Base
-    400000: //RootNode
-    400002: Pointer_Arrow
-    400004: Pointer_Base
+    100000: Lamp
+    100002: //RootNode
+    100004: Pointer_Arrow
+    100006: Pointer_Base
+    100008: Pointer_Base_001
+    100010: Pointer_Base_002
+    400000: Lamp
+    400002: //RootNode
+    400004: Pointer_Arrow
+    400006: Pointer_Base
+    400008: Pointer_Base_001
+    400010: Pointer_Base_002
     2300000: Pointer_Arrow
     2300002: Pointer_Base
+    2300004: Pointer_Base_001
+    2300006: Pointer_Base_002
     3300000: Pointer_Arrow
     3300002: Pointer_Base
-    4300000: Pointer_Arrow
-    4300002: Pointer_Base
+    3300004: Pointer_Base_001
+    3300006: Pointer_Base_002
+    4300000: Pointer_Base_002
+    4300002: Pointer_Base_001
+    4300004: Pointer_Arrow
+    4300006: Pointer_Base
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -36,7 +48,7 @@ ModelImporter:
       name: Default Take
       takeName: Default Take
       firstFrame: 0
-      lastFrame: 78
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -58,16 +70,22 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: Lamp
+        weight: 1
       - path: Pointer_Arrow
         weight: 1
       - path: Pointer_Base
+        weight: 1
+      - path: Pointer_Base_001
+        weight: 1
+      - path: Pointer_Base_002
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 3
+    globalScale: 5
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
