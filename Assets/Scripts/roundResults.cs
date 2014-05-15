@@ -7,7 +7,7 @@ public class roundResults : MonoBehaviour
     public static bool crashed;
     public static int roundNum;
     public int numOfRounds;
-    public bool landed;
+    public static bool landed;
     public Vector3 spawnPos;
     public Vector3 endPos;
     public static GameObject[] spaceshipArray;
@@ -47,12 +47,11 @@ public class roundResults : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "MarsTerrain")
 	    {
-            print("collided");
 
 			if (InGameUI.velVec.y < 10.0)
 	        {
-                print("landed");
 	        	landed = true;
+
 	        }
 	        else
 	        {
@@ -63,12 +62,11 @@ public class roundResults : MonoBehaviour
 
     void OnGUI()
     {
+        
         if (roundNum < numOfRounds)
         {
-            //print("inside GUI");
             if (landed == true)
             {
-                print("landed nicely");
               
                 if (GUI.Button(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 20, 120, 40), "Next Launch"))
                 {
@@ -96,7 +94,7 @@ public class roundResults : MonoBehaviour
                     roundNum++;
                 }
             }
-            else if (crashed == true)
+            else if (crashed)
             {
                 Debug.Log("CRASSSSSSSSHED!!!!");
                 if (GUI.Button(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 20, 80, 40), "Continue?"))
