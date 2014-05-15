@@ -129,6 +129,10 @@ public class roundResults : MonoBehaviour
                 }
                 GUI.Label(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 40, 80, 40), "Mission Complete!");
                 GUI.Label(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 5, 80, 40), "Your Final Score:" + TotalScore.ToString("##0"));
+                if (GUI.Button(new Rect(Screen.width/2 - 40, Screen.height / 2 + 60, 100, 40), "Restart"))
+                {
+                  Application.LoadLevel("default");
+                }
             }
 
         }
