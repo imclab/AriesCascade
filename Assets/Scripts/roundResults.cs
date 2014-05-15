@@ -17,7 +17,7 @@ public class roundResults : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        numOfRounds = 5;
+        numOfRounds = 4;
         spaceshipArray = new GameObject[numOfRounds];
         // spaceshipArray[0] = GameObject.Find("ShippingContainer");
          spawnPos = payload.transform.position;
