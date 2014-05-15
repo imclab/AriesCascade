@@ -6,6 +6,7 @@ public class InfiniteTerrain : MonoBehaviour
 	public GameObject PlayerObject;
 
 	private Terrain[,] _terrainGrid = new Terrain[3,3];
+    
 	
 	void Start ()
 	{
@@ -82,6 +83,8 @@ public class InfiniteTerrain : MonoBehaviour
 		{
 			for (int y = 0; y < 3; y++)
 			{
+                _terrainGrid[x, y].tag = "MarsTerrain";
+
 				if ((playerPosition.x >= _terrainGrid[x,y].transform.position.x) &&
 					(playerPosition.x <= (_terrainGrid[x,y].transform.position.x + _terrainGrid[x,y].terrainData.size.x)) &&
 					(playerPosition.z >= _terrainGrid[x,y].transform.position.z) &&
@@ -114,6 +117,7 @@ public class InfiniteTerrain : MonoBehaviour
 					else if (newY > 2)
 						newY = 0;
 					newTerrainGrid[newX, newY] = _terrainGrid[x,y];
+                    _terrainGrid[newX, newY].tag = "MarsTerrain";
 				}
 			_terrainGrid = newTerrainGrid;
 			UpdateTerrainPositionsAndNeighbors();
