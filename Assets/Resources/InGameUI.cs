@@ -50,7 +50,6 @@ public class InGameUI : MonoBehaviour {
         }
 
         velVec = (payload.GetComponent<Rigidbody>().velocity) * -1.0f;
-        velVec.Normalize();
 
         GUI.Label(new Rect(10, 10, 1000, 2000), "Velocity: " + velVec.ToString("##0.00"));
     }
