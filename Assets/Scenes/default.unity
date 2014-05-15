@@ -2768,6 +2768,10 @@ MonoBehaviour:
   spawnPos: {x: 0, y: 0, z: 0}
   endPos: {x: 0, y: 0, z: 0}
   payload: {fileID: 582322021}
+  TotalScore: 0
+  distance: 0
+  didSum: 0
+  startingRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &744159141
 Prefab:
   m_ObjectHideFlags: 0
