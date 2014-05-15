@@ -24,17 +24,16 @@ public class roundResults : MonoBehaviour
     {
         numOfRounds = 4;
         spaceshipArray = new GameObject[numOfRounds + 1];
-        // spaceshipArray[0] = GameObject.Find("ShippingContainer");
-         spawnPos = payload.transform.position;
-        //MouseOrbit.target  = spaceshipArray[0];
-         roundNum = 0;
-         TotalScore = 0;
-         distance = 0.0f;
-         startingRotation = payload.transform.rotation;
-         didSum = false;
-         landed = false;
-         crashed = false;
-
+        spaceshipArray[0] = GameObject.Find("ShippingContainer");
+        spawnPos = payload.transform.position;
+        MouseOrbit.target  = spaceshipArray[0];
+        roundNum = 0;
+        TotalScore = 0;
+        distance = 0.0f;
+        startingRotation = payload.transform.rotation;
+        didSum = false;
+        landed = false;
+        crashed = false;
 
     }
 
@@ -44,23 +43,20 @@ public class roundResults : MonoBehaviour
         //newRounds();
     }
 
-       void OnCollisionEnter(Collision collision)
-          {
-              if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "MarsTerrain")
-              {
-
-                  if (InGameUI.velNum < 10.0)
-                  {
-                     landed = true;
-                  }
-                  else
-                  {
-                      crashed = true;
-                  }
-
-
-              }
-        }       
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "MarsTerrain")
+	    {
+			if (InGameUI.velNum < 10.0)
+	        {
+	        	landed = true;
+	        }
+	        else
+	        {
+	            crashed = true;
+	        }
+	    }
+	}       
 
     void OnGUI()
     {
