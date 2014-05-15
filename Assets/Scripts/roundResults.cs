@@ -17,7 +17,7 @@ public class roundResults : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        numOfRounds = 4;
+        numOfRounds = 5;
         spaceshipArray = new GameObject[numOfRounds];
         // spaceshipArray[0] = GameObject.Find("ShippingContainer");
          spawnPos = payload.transform.position;
@@ -40,7 +40,7 @@ public class roundResults : MonoBehaviour
               if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "MarsTerrain")
               {
 
-                  if (InGameUI.velNum < 10.0)
+                  if (InGameUI.velVec.y < 10.0)
                   {
                      landed = true;
                   }

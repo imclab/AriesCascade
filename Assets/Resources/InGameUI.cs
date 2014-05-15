@@ -6,7 +6,8 @@ public class InGameUI : MonoBehaviour {
     private bool isPaused;
     public GUISkin skin;
     public GameObject payload;
-    public static float velNum;
+    public static Vector3 velVec;
+    private float velNum;
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +36,10 @@ public class InGameUI : MonoBehaviour {
 
         if(isPaused)
         {
-
+            if (GUI.Button(new Rect(Screen.width - 120, 10, 100, 50), "Resume"))
+            {
+                isPaused = false;
+            }
         }
         else
         {
@@ -45,9 +49,9 @@ public class InGameUI : MonoBehaviour {
             }
         }
 
-        velNum = (payload.GetComponent<Rigidbody>().velocity.y) * -1.0f;
-        
+        velVec = (payload.GetComponent<Rigidbody>().velocity) * -1.0f;
+        velVec.Normalize();
 
-        GUI.Label(new Rect(10, 10, 1000, 2000), "Velocity: " + velNum.ToString("##0.00"));
+        GUI.Label(new Rect(10, 10, 1000, 2000), "Velocity: " + velVec.ToString("##0.00"));
     }
 }

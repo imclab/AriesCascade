@@ -7,6 +7,7 @@ using System.Collections;
 public class MouseOrbit : MonoBehaviour
 {
     public static GameObject target;
+    public GameObject targetStart;
     float distanceMin = 10.0f;
     float distanceMax = 15.0f;
     float distanceInitial = 12.5f;
@@ -27,6 +28,7 @@ public class MouseOrbit : MonoBehaviour
 
     void Start()
     {
+        target = targetStart;
         distanceCurrent = distanceInitial;
         Vector3 angles = transform.eulerAngles;
         x = angles.y;
