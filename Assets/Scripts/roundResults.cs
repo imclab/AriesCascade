@@ -10,9 +10,10 @@ public class roundResults : MonoBehaviour
     public bool landed;
     public Vector3 spawnPos;
     public Vector3 endPos;
-    public static GameObject[] spaceshipArray;
+    public GameObject[] spaceshipArray;
     public GameObject payload;
 	public ParticleSystem LandingDust;
+	private 
 
     //private MouseOrbit cam;
     // Use this for initialization
@@ -20,12 +21,12 @@ public class roundResults : MonoBehaviour
     {
         numOfRounds = 4;
         spaceshipArray = new GameObject[numOfRounds];
-        // spaceshipArray[0] = GameObject.Find("ShippingContainer");
-         spawnPos = payload.transform.position;
-        //MouseOrbit.target  = spaceshipArray[0];
-         roundNum = 0;
-         landed = false;
-         crashed = false;
+        spaceshipArray[0] = GameObject.Find("ShippingContainer");
+        spawnPos = payload.transform.position;
+        MouseOrbit.target = spaceshipArray[0];
+        roundNum = 0;
+        landed = false;
+        crashed = false;
 
 
     }
