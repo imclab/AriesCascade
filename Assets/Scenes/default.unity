@@ -555,7 +555,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e9ea039e649fb564b9e6b85de23996ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -.157450557
+      value: 5.44112062
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e9ea039e649fb564b9e6b85de23996ce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2044,7 +2044,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfRounds: 0
-  landed: 0
   spawnPos: {x: 0, y: 0, z: 0}
   endPos: {x: 0, y: 0, z: 0}
   payload: {fileID: 582322021}
@@ -6608,7 +6607,7 @@ Transform:
   m_PrefabInternal: {fileID: 395211617}
   m_GameObject: {fileID: 1889940688}
   m_LocalRotation: {x: -.505208492, y: .494736701, z: .494736701, w: .505208492}
-  m_LocalPosition: {x: -144.173462, y: -.157450557, z: 88.1554718}
+  m_LocalPosition: {x: -144.173462, y: 5.44112062, z: 88.1554718}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6624,7 +6623,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numOfRounds: 0
-  landed: 0
   spawnPos: {x: 0, y: 0, z: 0}
   endPos: {x: 0, y: 0, z: 0}
   payload: {fileID: 582322021}
