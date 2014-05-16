@@ -65,7 +65,7 @@ public class roundResults : MonoBehaviour
         
         if (roundNum < numOfRounds)
         {
-            if (landed == true)
+            if (landed == true && !crashed)
             {
               
                 if (GUI.Button(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 20, 120, 40), "Next Launch"))
@@ -78,14 +78,22 @@ public class roundResults : MonoBehaviour
                     spaceshipArray[roundNum].gameObject.GetComponentInChildren<AudioListener>().enabled = false;
                     MouseOrbit.target = payload;
                     payload.transform.rotation = startingRotation;
+                    payload.rigidbody.angularVelocity = Vector3.zero;
+                    payload.rigidbody.velocity = Vector3.zero;
                     payload.transform.position = spawnPos;
 
                     if (roundNum > 0)
                     {
+                        int score;
                         // print("inside");
                         distance = Vector3.Distance(spaceshipArray[0].transform.position, spaceshipArray[roundNum].transform.position);
-                        if (distance > 10000) distance = 9999;
-                        int score = (int)(10000 - distance);
+                        print(distance);
+
+                        if (distance > 200) score = 1;
+                        else
+                        {
+                            score = (int)((200 - distance)*10);
+                        }
                         TotalScore = TotalScore + score;
                     }
 
@@ -105,6 +113,8 @@ public class roundResults : MonoBehaviour
                     spaceshipArray[roundNum].gameObject.GetComponentInChildren<AudioListener>().enabled = false;
                     MouseOrbit.target = payload;
                     payload.transform.rotation = startingRotation;
+                    payload.rigidbody.angularVelocity = Vector3.zero;
+                    payload.rigidbody.velocity = Vector3.zero;
                     payload.transform.position = spawnPos;
                     roundNum++;
                     landed = false;
@@ -156,10 +166,14 @@ public class roundResults : MonoBehaviour
   
     public int scoreCalc(float distance)
    {
+       int LastScore;
         //calculate score of player
-       if (distance > 10000) distance = 9999;
-       int lastScore = (int)(10000 - distance);
-       TotalScore = TotalScore + lastScore;
+       if (distance > 200)  LastScore = 1;
+       else
+       {
+          LastScore = (int)((200 - distance) * 10);
+       }
+       TotalScore = TotalScore + LastScore;
        return TotalScore;
     }
 

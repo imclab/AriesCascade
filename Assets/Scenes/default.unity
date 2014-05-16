@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: .5
-  thrustU: 30
+  thrustU: 60
   closeRight: {fileID: 1346976322}
   closeLeft: {fileID: 1331920323}
   farRight: {fileID: 502406241}
@@ -2494,7 +2494,7 @@ Prefab:
       objectReference: {fileID: 2077373633}
     - target: {fileID: 11400000, guid: 48ecfd4b4c6f4714f852f9c568f3936b, type: 2}
       propertyPath: thrustU
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 48ecfd4b4c6f4714f852f9c568f3936b, type: 2}
       propertyPath: thrust
