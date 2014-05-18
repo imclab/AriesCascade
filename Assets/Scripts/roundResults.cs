@@ -11,6 +11,7 @@ public class roundResults : MonoBehaviour
     public Vector3 spawnPos;
     public Vector3 endPos;
     public static GameObject[] spaceshipArray;
+    public GameObject[] landingPoints = new GameObject[5];
     public GameObject payload;
     public int TotalScore;
     public float distance;
@@ -34,7 +35,6 @@ public class roundResults : MonoBehaviour
         didSum = false;
         landed = false;
         crashed = false;
-
     }
 
     // Update is called once per frame
@@ -48,13 +48,17 @@ public class roundResults : MonoBehaviour
 		if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "MarsTerrain")
 	    {
 
-			if (InGameUI.velVec.y < 10.0)
+			if (InGameUI.velNum < 12.0)
 	        {
 	        	landed = true;
 
 	        }
-	        else
+	        else                
+
 	        {
+                gameObject.renderer.enabled = false;
+                gameObject.rigidbody.isKinematic = true;
+                GameObject explosion = (GameObject)Instantiate(Resources.Load("Detonator-Upwards"), transform.position, transform.rotation);
 	            crashed = true;
 	        }
 	    }
@@ -99,24 +103,35 @@ public class roundResults : MonoBehaviour
 
                     landed = false;
                     crashed = false;
+                    landingPoints[roundNum].transform.Find("Mars_Arrow").gameObject.SetActive(false);
+
                     roundNum++;
+                    landingPoints[roundNum].transform.Find("Mars_Arrow").gameObject.SetActive(true);
                 }
             }
             else if (crashed)
             {
                 Debug.Log("CRASSSSSSSSHED!!!!");
+                
                 if (GUI.Button(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 20, 80, 40), "Continue?"))
                 {
                     endPos = payload.transform.position;
                     spaceshipArray[roundNum] = (GameObject)Instantiate(Resources.Load("SpaceshipDummy"), endPos, transform.rotation);
                     spaceshipArray[roundNum].gameObject.GetComponentInChildren<Camera>().enabled = false;
                     spaceshipArray[roundNum].gameObject.GetComponentInChildren<AudioListener>().enabled = false;
+                    spaceshipArray[roundNum].gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
                     MouseOrbit.target = payload;
+                    payload.renderer.enabled = true;
+                    payload.rigidbody.isKinematic = false;
                     payload.transform.rotation = startingRotation;
                     payload.rigidbody.angularVelocity = Vector3.zero;
                     payload.rigidbody.velocity = Vector3.zero;
                     payload.transform.position = spawnPos;
+
+                    landingPoints[roundNum].transform.Find("Mars_Arrow").gameObject.SetActive(false);
+
                     roundNum++;
+                    landingPoints[roundNum].transform.Find("Mars_Arrow").gameObject.SetActive(true);
                     landed = false;
                     crashed = false;
                 }

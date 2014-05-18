@@ -7,7 +7,7 @@ public class InGameUI : MonoBehaviour {
     public GUISkin skin;
     public GameObject payload;
     public static Vector3 velVec;
-    private float velNum;
+    public static float velNum;
 
 	// Use this for initialization
 	void Start () {
@@ -51,6 +51,8 @@ public class InGameUI : MonoBehaviour {
 
         velVec = (payload.GetComponent<Rigidbody>().velocity) * -1.0f;
 
-        GUI.Label(new Rect(10, 10, 1000, 2000), "Velocity: " + velVec.ToString("##0.00"));
+        velNum = Mathf.Sqrt(Mathf.Pow(velVec.x, 2) + Mathf.Pow(velVec.y, 2) + Mathf.Pow(velVec.z, 2));
+
+        GUI.Label(new Rect(10, 10, 1000, 2000), "Velocity: " + velNum.ToString("##0.00"));
     }
 }
