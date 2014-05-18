@@ -268,6 +268,48 @@ Transform:
   m_LocalScale: {x: 1, y: .999999821, z: 1.00000012}
   m_Children: []
   m_Father: {fileID: 1855146871}
+--- !u!1 &97267345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 97267347}
+  - 114: {fileID: 97267346}
+  m_Layer: 0
+  m_Name: KongAPI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &97267346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 97267345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a2c8e9eb77f5243b05b63b8779616e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isKongregate: 0
+  username: Guest
+  userID: 0
+  gameAuthToken: 
+--- !u!4 &97267347
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 97267345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 50.6164932, y: 71.3843613, z: 12.9738245}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1001 &119647185
 Prefab:
   m_ObjectHideFlags: 0
@@ -507,7 +549,6 @@ GameObject:
   - 4: {fileID: 1311023796}
   - 114: {fileID: 1311023795}
   - 154: {fileID: 1311023794}
-  - 114: {fileID: 1311023797}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -562,18 +603,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!114 &1311023797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1311023793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 879a8dbb751d7ec44b8c4afc7e5e5927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerObject: {fileID: 2015361646}
 --- !u!1 &1540194227
 GameObject:
   m_ObjectHideFlags: 0

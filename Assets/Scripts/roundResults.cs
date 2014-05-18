@@ -18,10 +18,13 @@ public class roundResults : MonoBehaviour
     public GameObject landP3;
     public GameObject landP4;
     public GameObject landP5;
-    public int TotalScore;
+    public static int TotalScore;
     public float distance;
     public bool didSum;
     public Quaternion startingRotation;
+	public WindTrigger wbox;
+    public static float altitude;
+    public GUISkin skin;
 
 
     //private MouseOrbit cam;
@@ -45,7 +48,6 @@ public class roundResults : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //newRounds();
     }
 
 	void OnCollisionEnter(Collision collision)
@@ -71,13 +73,15 @@ public class roundResults : MonoBehaviour
 
     void OnGUI()
     {
-        
+        GUI.skin = skin;
+        skin.label.fontSize = 25;
+        skin.button.fontSize = 13;
         if (roundNum < numOfRounds)
         {
             if (landed == true && !crashed)
             {
-              
-                if (GUI.Button(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 20, 120, 40), "Next Launch"))
+                GUI.Label(new Rect(Screen.width * 0.5f - 87.5f, Screen.height * 0.5f - 70, 250, 60), "Nice Landing!");
+                if (GUI.Button(new Rect(Screen.width * 0.5f + 10, Screen.height * 0.5f - 20, 150, 40), "Next Launch ?"))
                 {
                     //copies an empty payload at the spot of the landing and moves current payload back to start
                     //once all payload prefabs are in should create new payload, switch camera target, and delete last
@@ -97,11 +101,10 @@ public class roundResults : MonoBehaviour
                         // print("inside");
                         distance = Vector3.Distance(landingPoints[roundNum].transform.position, spaceshipArray[roundNum].transform.position);
                         print(distance);
-
-                        if (distance > 200) score = 1;
+                        if (distance > 50) score = 1;
                         else
                         {
-                            score = (int)((200 - distance)*10);
+                            score = (int)((50 - distance)*10);
                         }
                         TotalScore = TotalScore + score;
                     }
@@ -112,13 +115,27 @@ public class roundResults : MonoBehaviour
 
                     roundNum++;
                     landingPoints[roundNum].transform.Find("Mars_Arrow").gameObject.SetActive(true);
+					WindTrigger.changeForce(roundNum);
+					WindTrigger.changeAngle();
+                }
+                if (GUI.Button(new Rect(Screen.width * 0.5f - 190, Screen.height * 0.5f - 20, 150, 40), "Restart Launch ?"))
+                {
+
+                    MouseOrbit.target = payload;
+                    payload.transform.rotation = startingRotation;
+                    payload.rigidbody.angularVelocity = Vector3.zero;
+                    payload.rigidbody.velocity = Vector3.zero;
+                    payload.transform.position = spawnPos;
+                    WindTrigger.changeForce(roundNum);
+                    WindTrigger.changeAngle();
+                    landed = false;
+                    crashed = false;
                 }
             }
             else if (crashed)
             {
-                //Debug.Log("CRASSSSSSSSHED!!!!");
-                
-                if (GUI.Button(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 20, 80, 40), "Continue?"))
+                GUI.Label(new Rect(Screen.width * 0.5f - 87.5f, Screen.height * 0.5f - 70, 250, 60), "You Crashed!");
+                if (GUI.Button(new Rect(Screen.width * 0.5f + 10, Screen.height * 0.5f - 20, 150, 40), "Next Launch ?"))
                 {
                     endPos = payload.transform.position;
                     spaceshipArray[roundNum] = (GameObject)Instantiate(Resources.Load("SpaceshipDummy"), endPos, transform.rotation);
@@ -134,9 +151,24 @@ public class roundResults : MonoBehaviour
                     payload.transform.position = spawnPos;
 
                     landingPoints[roundNum].transform.Find("Mars_Arrow").gameObject.SetActive(false);
-
                     roundNum++;
                     landingPoints[roundNum].transform.Find("Mars_Arrow").gameObject.SetActive(true);
+					WindTrigger.changeForce(roundNum);
+					WindTrigger.changeAngle();
+                    landed = false;
+                    crashed = false;
+                }
+                if (GUI.Button(new Rect(Screen.width * 0.5f - 190, Screen.height * 0.5f - 20, 150, 40), "Restart Launch ?"))
+                {
+                    payload.rigidbody.isKinematic = false;
+                    payload.renderer.enabled = true;
+                    MouseOrbit.target = payload;
+                    payload.transform.rotation = startingRotation;
+                    payload.rigidbody.angularVelocity = Vector3.zero;
+                    payload.rigidbody.velocity = Vector3.zero;
+                    payload.transform.position = spawnPos;
+                    WindTrigger.changeForce(roundNum);
+                    WindTrigger.changeAngle();
                     landed = false;
                     crashed = false;
                 }
@@ -153,28 +185,61 @@ public class roundResults : MonoBehaviour
                 spaceshipArray[roundNum] = payload;
                 if (!didSum)
                 {
-                    distance = Vector3.Distance(landingPoints[roundNum].transform.position, spaceshipArray[roundNum].transform.position);
-                    TotalScore = scoreCalc(distance);
+                    print(roundNum);
+                    if(landed)
+                    {
+                        int score;
+                        distance = Vector3.Distance(landingPoints[roundNum].transform.position, spaceshipArray[roundNum].transform.position);
+                        if (distance > 50) score = 1;
+                        else
+                        {
+                            score = (int)((50 - distance) * 10);
+                        }
+                        TotalScore = TotalScore + score;
+                        KongregateAPI.instance.SubmitStats("Highscore", TotalScore);
+                    }
+                    else
+                    {
+                        KongregateAPI.instance.SubmitStats("Highscore", TotalScore);
+                    }
                     didSum = true;
                 }
-                GUI.Label(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 40, 80, 40), "Mission Complete!");
-                GUI.Label(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 5, 80, 40), "Your Final Score:" + TotalScore.ToString("##0"));
-                if (GUI.Button(new Rect(Screen.width/2 - 40, Screen.height / 2 + 60, 100, 40), "Restart"))
+                if(TotalScore > 0)
+                {
+                    GUI.Label(new Rect(Screen.width * 0.5f - 120, Screen.height * 0.5f - 40, 300, 50), "Mission Complete!");
+                }
+                else
+                {
+                    GUI.Label(new Rect(Screen.width * 0.5f - 100, Screen.height * 0.5f - 40, 300, 50), "Mission Failed!");
+                }
+                GUI.Label(new Rect(Screen.width * 0.5f - 105, Screen.height * 0.5f - 5, 250, 60), "Final Score : " + TotalScore.ToString("##0"));
+                if (GUI.Button(new Rect(Screen.width/2 - 85, Screen.height / 2 + 60, 170, 60), "Restart Mission"))
                 {
                   Application.LoadLevel("default");
                 }
             }
 
         }
-        GUI.Label(new Rect(Screen.width - 300, 10, 2000, 2000), "Score: " + TotalScore.ToString("##0"));
+        skin.label.fontSize = 40;
+        skin.button.fontSize = 20;
     }
 
 
 
     void FixedUpdate()
     {
-       
-           
+
+        
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position, new Vector3(0,-1,0), out hit, 300.0f))
+        {
+            altitude = transform.position.y - hit.point.y;
+            if (altitude < 2.0f) altitude = 0;
+            Debug.DrawLine(transform.position, hit.point);
+        }
+
+
     }
 
 
@@ -190,19 +255,7 @@ public class roundResults : MonoBehaviour
  
     return true;
     }
-  
-    public int scoreCalc(float distance)
-   {
-       int LastScore;
-        //calculate score of player
-       if (distance > 200)  LastScore = 1;
-       else
-       {
-          LastScore = (int)((200 - distance) * 10);
-       }
-       TotalScore = TotalScore + LastScore;
-       return TotalScore;
-    }
+
 
     
 
