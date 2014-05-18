@@ -40,11 +40,6 @@ public class roundResults : MonoBehaviour
         didSum = false;
         landed = false;
         crashed = false;
-        landingPoints[0] = landP1;
-        landingPoints[1] = landP2;
-        landingPoints[2] = landP3;
-        landingPoints[3] = landP4;
-        landingPoints[4] = landP5;
     }
 
     // Update is called once per frame
@@ -121,7 +116,7 @@ public class roundResults : MonoBehaviour
             }
             else if (crashed)
             {
-                Debug.Log("CRASSSSSSSSHED!!!!");
+                //Debug.Log("CRASSSSSSSSHED!!!!");
                 
                 if (GUI.Button(new Rect(Screen.width * 0.5f - 40, Screen.height * 0.5f - 20, 80, 40), "Continue?"))
                 {
@@ -178,15 +173,7 @@ public class roundResults : MonoBehaviour
 
     void FixedUpdate()
     {
-        print(InGameUI.rayCastDirection);
-        Vector3 direction = transform.TransformDirection(InGameUI.rayCastDirection);
-        
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, direction, out hit, 300.0f))
-        {
-            Debug.DrawLine(transform.position, hit.point, Color.cyan);
-        }
+       
            
     }
 
@@ -216,5 +203,7 @@ public class roundResults : MonoBehaviour
        TotalScore = TotalScore + LastScore;
        return TotalScore;
     }
+
+    
 
 }
