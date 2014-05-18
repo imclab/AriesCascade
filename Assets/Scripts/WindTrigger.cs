@@ -9,7 +9,7 @@ public class WindTrigger : MonoBehaviour {
 
 	void Start () {
 		force = 0;
-		angle = 0;
+		angle = Vector3.forward;
 		wbox = GameObject.Find("WindBox");
 	}
 
