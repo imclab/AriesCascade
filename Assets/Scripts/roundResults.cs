@@ -166,6 +166,21 @@ public class roundResults : MonoBehaviour
 
 
 
+    void FixedUpdate()
+    {
+        print(InGameUI.rayCastDirection);
+        Vector3 direction = transform.TransformDirection(InGameUI.rayCastDirection);
+        
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, direction, out hit, 300.0f))
+        {
+            Debug.DrawLine(transform.position, hit.point, Color.cyan);
+        }
+           
+    }
+
+
     public bool isUpright( GameObject theShip )
     {
     if ( theShip.transform.eulerAngles.z > 295 ) {

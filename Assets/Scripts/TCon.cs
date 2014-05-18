@@ -26,31 +26,39 @@ public class TCon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetAxis("Horizontal") > 0)
-        { //checking for right arrow
-            rThrust = true;
-        }
-        else rThrust = false;
-        if (Input.GetAxis("Horizontal") < 0)
-        { //checking for left arrow
-            lThrust = true;
-        }
-        else lThrust = false;
-        if (Input.GetAxis("Vertical") > 0)
-        { //checking for up arrow
-            fThrust = true;
-        }
-        else fThrust = false;
-        if (Input.GetAxis("Vertical") < 0)
-        { //checking for down arrow
-            bThrust = true;
-        }
-        else bThrust = false;
-        if (Input.GetKey("space"))
+        if(!roundResults.landed && !roundResults.crashed)
         {
-            uThrust = true;
+            if (Input.GetAxis("Horizontal") > 0)
+            { //checking for right arrow
+                rThrust = true;
+            }
+            else rThrust = false;
+            if (Input.GetAxis("Horizontal") < 0)
+            { //checking for left arrow
+                lThrust = true;
+            }
+            else lThrust = false;
+            if (Input.GetAxis("Vertical") > 0)
+            { //checking for up arrow
+                fThrust = true;
+            }
+            else fThrust = false;
+            if (Input.GetAxis("Vertical") < 0)
+            { //checking for down arrow
+                bThrust = true;
+            }
+            else bThrust = false;
+            if (Input.GetKey("space"))
+            {
+                uThrust = true;
+            }
+            else uThrust = false;
         }
-        else uThrust = false;
+        else
+        {
+            rThrust = lThrust = fThrust = bThrust = uThrust = false;
+        }
+        
 	}
 
     void FixedUpdate()

@@ -8,6 +8,7 @@ public class InGameUI : MonoBehaviour {
     public GameObject payload;
     public static Vector3 velVec;
     public static float velNum;
+    public static Vector3 rayCastDirection;
 
 	// Use this for initialization
 	void Start () {
@@ -49,7 +50,8 @@ public class InGameUI : MonoBehaviour {
             }
         }
 
-        velVec = (payload.GetComponent<Rigidbody>().velocity) * -1.0f;
+        velVec = (payload.GetComponent<Rigidbody>().velocity);
+        rayCastDirection = new Vector3(velVec.x, -1.0f * velVec.z, velVec.y);
 
         velNum = Mathf.Sqrt(Mathf.Pow(velVec.x, 2) + Mathf.Pow(velVec.y, 2) + Mathf.Pow(velVec.z, 2));
 

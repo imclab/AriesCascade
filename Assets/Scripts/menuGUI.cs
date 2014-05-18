@@ -19,7 +19,7 @@ public class menuGUI : MonoBehaviour {
     {
         GUI.skin = skin;
 
-        GUI.Label(new Rect(Screen.width/2 - 550, Screen.height/2 - 250, 1500, 250), "Ares Cascade");
+        GUI.Label(new Rect(Screen.width/2 - 350, Screen.height/2 - 250, 1500, 250), "Ares Cascade");
 
         Rect playBox = new Rect(Screen.width/2 - 100, Screen.height/2 - 50, 200, 100);
 
