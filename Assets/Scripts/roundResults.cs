@@ -13,6 +13,11 @@ public class roundResults : MonoBehaviour
     public static GameObject[] spaceshipArray;
     public GameObject[] landingPoints = new GameObject[5];
     public GameObject payload;
+    public GameObject landP1;
+    public GameObject landP2;
+    public GameObject landP3;
+    public GameObject landP4;
+    public GameObject landP5;
     public int TotalScore;
     public float distance;
     public bool didSum;
@@ -35,6 +40,11 @@ public class roundResults : MonoBehaviour
         didSum = false;
         landed = false;
         crashed = false;
+        landingPoints[0] = landP1;
+        landingPoints[1] = landP2;
+        landingPoints[2] = landP3;
+        landingPoints[3] = landP4;
+        landingPoints[4] = landP5;
     }
 
     // Update is called once per frame
@@ -86,11 +96,11 @@ public class roundResults : MonoBehaviour
                     payload.rigidbody.velocity = Vector3.zero;
                     payload.transform.position = spawnPos;
 
-                    if (roundNum > 0)
+                    if (roundNum >= 0)
                     {
                         int score;
                         // print("inside");
-                        distance = Vector3.Distance(spaceshipArray[0].transform.position, spaceshipArray[roundNum].transform.position);
+                        distance = Vector3.Distance(landingPoints[roundNum].transform.position, spaceshipArray[roundNum].transform.position);
                         print(distance);
 
                         if (distance > 200) score = 1;
@@ -148,7 +158,7 @@ public class roundResults : MonoBehaviour
                 spaceshipArray[roundNum] = payload;
                 if (!didSum)
                 {
-                    distance = Vector3.Distance(spaceshipArray[0].transform.position, spaceshipArray[roundNum].transform.position);
+                    distance = Vector3.Distance(landingPoints[roundNum].transform.position, spaceshipArray[roundNum].transform.position);
                     TotalScore = scoreCalc(distance);
                     didSum = true;
                 }

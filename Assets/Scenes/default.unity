@@ -2465,6 +2465,11 @@ MonoBehaviour:
   - {fileID: 92507400}
   - {fileID: 943240836}
   payload: {fileID: 582322021}
+  landP1: {fileID: 1013504938}
+  landP2: {fileID: 1587324306}
+  landP3: {fileID: 414035899}
+  landP4: {fileID: 92507400}
+  landP5: {fileID: 943240836}
   TotalScore: 0
   distance: 0
   didSum: 0
@@ -3410,6 +3415,26 @@ Prefab:
       objectReference: {fileID: 92507400}
     - target: {fileID: 11400002, guid: 48ecfd4b4c6f4714f852f9c568f3936b, type: 2}
       propertyPath: landingPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 943240836}
+    - target: {fileID: 11400002, guid: 48ecfd4b4c6f4714f852f9c568f3936b, type: 2}
+      propertyPath: landP1
+      value: 
+      objectReference: {fileID: 1013504938}
+    - target: {fileID: 11400002, guid: 48ecfd4b4c6f4714f852f9c568f3936b, type: 2}
+      propertyPath: landP2
+      value: 
+      objectReference: {fileID: 1587324306}
+    - target: {fileID: 11400002, guid: 48ecfd4b4c6f4714f852f9c568f3936b, type: 2}
+      propertyPath: landP3
+      value: 
+      objectReference: {fileID: 414035899}
+    - target: {fileID: 11400002, guid: 48ecfd4b4c6f4714f852f9c568f3936b, type: 2}
+      propertyPath: landP4
+      value: 
+      objectReference: {fileID: 92507400}
+    - target: {fileID: 11400002, guid: 48ecfd4b4c6f4714f852f9c568f3936b, type: 2}
+      propertyPath: landP5
       value: 
       objectReference: {fileID: 943240836}
     m_RemovedComponents: []
@@ -8332,6 +8357,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   payload: {fileID: 582322021}
+  landP1: {fileID: 0}
+  landP2: {fileID: 0}
+  landP3: {fileID: 0}
+  landP4: {fileID: 0}
+  landP5: {fileID: 0}
   TotalScore: 0
   distance: 0
   didSum: 0
