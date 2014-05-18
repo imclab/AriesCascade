@@ -17,6 +17,7 @@ public class roundResults : MonoBehaviour
     public float distance;
     public bool didSum;
     public Quaternion startingRotation;
+	public WindTrigger wbox;
 
 
     //private MouseOrbit cam;
@@ -35,6 +36,9 @@ public class roundResults : MonoBehaviour
         didSum = false;
         landed = false;
         crashed = false;
+		//wbox = WindBox.GetComponent (WindTrigger);
+		//WindTrigger.changeForce (roundNum);
+		//WindTrigger.changeAngle (roundNum);
     }
 
     // Update is called once per frame
@@ -107,6 +111,8 @@ public class roundResults : MonoBehaviour
 
                     roundNum++;
                     landingPoints[roundNum].transform.Find("Mars_Arrow").gameObject.SetActive(true);
+					WindTrigger.changeForce(roundNum);
+					WindTrigger.changeAngle();
                 }
             }
             else if (crashed)
@@ -132,6 +138,8 @@ public class roundResults : MonoBehaviour
 
                     roundNum++;
                     landingPoints[roundNum].transform.Find("Mars_Arrow").gameObject.SetActive(true);
+					WindTrigger.changeForce(roundNum);
+					WindTrigger.changeAngle();
                     landed = false;
                     crashed = false;
                 }

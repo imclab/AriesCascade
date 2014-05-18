@@ -505,7 +505,6 @@ GameObject:
   - 33: {fileID: 154438833}
   - 65: {fileID: 154438832}
   - 23: {fileID: 154438831}
-  - 114: {fileID: 154438830}
   m_Layer: 0
   m_Name: WWallZ-
   m_TagString: Untagged
@@ -513,20 +512,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &154438830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 154438829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8381aa1a07b1a81499a1fc1c67ddec93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableZone: 1
-  force: 5000
-  direction: {x: 0, y: 0, z: 1}
 --- !u!23 &154438831
 Renderer:
   m_ObjectHideFlags: 0
@@ -555,7 +540,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154438829}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -757,7 +742,6 @@ GameObject:
   - 33: {fileID: 418516362}
   - 65: {fileID: 418516361}
   - 23: {fileID: 418516360}
-  - 114: {fileID: 418516359}
   m_Layer: 0
   m_Name: WWallX-
   m_TagString: Untagged
@@ -765,20 +749,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &418516359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 418516358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8381aa1a07b1a81499a1fc1c67ddec93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableZone: 1
-  force: 5000
-  direction: {x: 1, y: 0, z: 0}
 --- !u!23 &418516360
 Renderer:
   m_ObjectHideFlags: 0
@@ -807,7 +777,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 418516358}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2385,6 +2355,7 @@ MonoBehaviour:
   distance: 0
   didSum: 0
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
+  wbox: {fileID: 0}
 --- !u!1 &594323584
 GameObject:
   m_ObjectHideFlags: 0
@@ -7159,7 +7130,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 1
   InitialModule:
@@ -8409,7 +8380,6 @@ GameObject:
   - 33: {fileID: 1620732103}
   - 65: {fileID: 1620732102}
   - 23: {fileID: 1620732101}
-  - 114: {fileID: 1620732100}
   m_Layer: 0
   m_Name: WWallZ+
   m_TagString: Untagged
@@ -8417,20 +8387,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1620732100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1620732099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8381aa1a07b1a81499a1fc1c67ddec93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableZone: 1
-  force: 5000
-  direction: {x: 0, y: 0, z: -1}
 --- !u!23 &1620732101
 Renderer:
   m_ObjectHideFlags: 0
@@ -8459,7 +8415,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1620732099}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -8714,9 +8670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8381aa1a07b1a81499a1fc1c67ddec93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableZone: 1
-  force: 20
-  direction: {x: 0, y: 0, z: 1}
 --- !u!23 &1764224461
 Renderer:
   m_ObjectHideFlags: 0
@@ -8987,6 +8940,7 @@ MonoBehaviour:
   distance: 0
   didSum: 0
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
+  wbox: {fileID: 0}
 --- !u!1 &1893281742
 GameObject:
   m_ObjectHideFlags: 0
@@ -8998,7 +8952,6 @@ GameObject:
   - 33: {fileID: 1893281746}
   - 65: {fileID: 1893281745}
   - 23: {fileID: 1893281744}
-  - 114: {fileID: 1893281743}
   m_Layer: 0
   m_Name: WWallX+
   m_TagString: Untagged
@@ -9006,20 +8959,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1893281743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1893281742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8381aa1a07b1a81499a1fc1c67ddec93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableZone: 1
-  force: 5000
-  direction: {x: -1, y: 0, z: 0}
 --- !u!23 &1893281744
 Renderer:
   m_ObjectHideFlags: 0
@@ -9048,7 +8987,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893281742}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
