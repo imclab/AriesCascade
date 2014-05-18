@@ -202,23 +202,27 @@ public class roundResults : MonoBehaviour
                     {
                         KongregateAPI.instance.SubmitStats("Highscore", TotalScore);
                     }
+                    roundNum++;
                     didSum = true;
-                }
-                if(TotalScore > 0)
-                {
-                    GUI.Label(new Rect(Screen.width * 0.5f - 120, Screen.height * 0.5f - 40, 300, 50), "Mission Complete!");
-                }
-                else
-                {
-                    GUI.Label(new Rect(Screen.width * 0.5f - 100, Screen.height * 0.5f - 40, 300, 50), "Mission Failed!");
-                }
-                GUI.Label(new Rect(Screen.width * 0.5f - 105, Screen.height * 0.5f - 5, 250, 60), "Final Score : " + TotalScore.ToString("##0"));
-                if (GUI.Button(new Rect(Screen.width/2 - 85, Screen.height / 2 + 60, 170, 60), "Restart Mission"))
-                {
-                  Application.LoadLevel("default");
                 }
             }
 
+        }
+        if(roundNum == numOfRounds+1)
+        {
+            if (TotalScore > 0)
+            {
+                GUI.Label(new Rect(Screen.width * 0.5f - 120, Screen.height * 0.5f - 40, 300, 50), "Mission Complete!");
+            }
+            else
+            {
+                GUI.Label(new Rect(Screen.width * 0.5f - 100, Screen.height * 0.5f - 40, 300, 50), "Mission Failed!");
+            }
+            GUI.Label(new Rect(Screen.width * 0.5f - 105, Screen.height * 0.5f - 5, 250, 60), "Final Score : " + TotalScore.ToString("##0"));
+            if (GUI.Button(new Rect(Screen.width / 2 - 85, Screen.height / 2 + 60, 170, 60), "Restart Mission"))
+            {
+                Application.LoadLevel("default");
+            }
         }
         skin.label.fontSize = 40;
         skin.button.fontSize = 20;

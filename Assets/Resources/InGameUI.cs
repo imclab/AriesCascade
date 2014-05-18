@@ -59,7 +59,7 @@ public class InGameUI : MonoBehaviour {
 
         velNum = Mathf.Sqrt(Mathf.Pow(velVec.x, 2) + Mathf.Pow(velVec.y, 2) + Mathf.Pow(velVec.z, 2));
 
-        if(roundResults.roundNum < 5)
+        if(roundResults.roundNum != 5 && (!roundResults.landed || !roundResults.crashed))
         {
             GUI.Label(new Rect(10, 10, 1000, 2000), "Velocity: " + velNum.ToString("##0.00"));
             GUI.Label(new Rect(10, Screen.height - 50, 1000, 2000), "Altitude: " + roundResults.altitude.ToString("##0") + " meters");
